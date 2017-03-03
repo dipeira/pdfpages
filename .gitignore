@@ -1,0 +1,11 @@
+# exclude files
+composer.lock
+
+# exclude folders
+vendor/*
+data/*
+
+#include files
+!data/employee_sample.csv
+!data/.htaccess
+!data/index.html

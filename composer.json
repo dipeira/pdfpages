@@ -1,0 +1,7 @@
+{
+  "require": {
+    "parsecsv/php-parsecsv": "0.4.5",
+    "itbz/fpdf": "1.7.2",
+    "itbz/fpdi": "1.5.2-patch2"
+  }
+}
