@@ -4,6 +4,7 @@
 // by Vangelis Zacharioudakis (http://github.com/sugarv)
 
 // include files
+use setasign\Fpdi\Fpdi;
 require_once('config.php');
 require_once('./vendor/autoload.php');
 
@@ -60,7 +61,7 @@ else
 		// use ParseCSV to find employee in csv file
 		$csvFile = 'data/' . EMPLOYEE_FILENAME;
 
-		$csv = new parseCSV();
+		$csv = new \ParseCsv\Csv();
 		$csv->delimiter = ";";
 		// find employee using AFM & AM
 		$condition = 'afm is '.$afm.' AND am is '.$am;
@@ -87,11 +88,12 @@ else
 
 		// FPDI lib is used. File must be PDF/A (v.1.4)
 		//initiate FPDI
-		$pdf = new \fpdi\FPDI();
+		
+		$pdf = new Fpdi();
 		foreach ($pages as $page)
 		{
-			//add a page
-			$pdf->AddPage();
+			//add a page (L for Landscape page orientation)
+			$pdf->AddPage(L);
 			//set the source file
 			$fn = "./data/".VEV_FILENAME;
 			$pdf->setSourceFile($fn);
